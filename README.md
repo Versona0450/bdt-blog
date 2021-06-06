@@ -4,7 +4,7 @@ Ini adalah web Blog buatan saya, walau masih banyak kekurangan, mudah-mudahan fi
 
 Cara Instalasinya adalah : <br>
 1.buka GIT BASH <br>
-2.ketik "git clone https://versona0450/bdt-blog.git" <br>
+2.ketik "git clone https://github.com/Versona0450/bdt-blog.git" <br>
 3.ketik perintah "composer install" <br>
 4.jika terjadi error saat selesai menginstall composer, ketikan "composer update" <br>
 5.ketik "cp .env.example .env" <br>
