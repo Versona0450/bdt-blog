@@ -17,7 +17,7 @@ class HomeController extends Controller
 
     public function blog()
     {
-        $first = Article::latest()->take(1)->get();
+        $first = Article::latest()->where('status', 1)->take(1)->get();
         $article = Article::orderByDesc('created_at')->where('status', 1)->paginate(10);
 
         return view('welcome', compact('first', 'article'));
