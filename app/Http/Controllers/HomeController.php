@@ -31,22 +31,6 @@ class HomeController extends Controller
         return view('welcome',compact('article'));
     }
 
-
-    public function dashboard()
-    {
-        $guest = User::where('role_id', 4);
-        if (Gate::allows('isGuest', $guest )) {
-            return redirect(route('blog'));
-        }
-
-        $article = Article::all()->count('id');
-        $writer = User::all()->where('role_id', 2)->count('id');
-        $publisher = User::all()->where('role_id', 3)->count('id');
-        $guest = User::all()->where('role_id', 4)->count('id');
-
-        return view('admin.dashboard', compact('article', 'writer', 'publisher', 'guest'));
-    }
-  
     public function show($id)
     {
         $article = Article::find($id);

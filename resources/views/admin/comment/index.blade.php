@@ -70,7 +70,15 @@
                                     {{$row->user->name}}
                                 </td>
                                 <td>
-                                    {{$row->status}}
+                                    @if($row->status == 0)
+                                    <span class="badge badge-secondary">
+                                      Draft
+                                    </span>
+                                    @else
+                                    <span class="badge badge-success">
+                                      Publish
+                                    </span>
+                                    @endif
                                 </td>
                                 <td>
                                   <div class="btn-group">

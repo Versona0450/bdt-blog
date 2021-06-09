@@ -20,7 +20,7 @@ class UserController extends Controller
     public function index()
     {
         $admin = User::where('role_id', 1);
-        $user = User::all()->whereBetween('role_id', [1,2,3]);
+        $user = User::all()->whereNotInStrict('role_id', 4);
         $guest = User::all()->where('role_id', 4);
         $role = Role::all();
 

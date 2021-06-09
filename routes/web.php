@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +42,7 @@ Route::get('/article/{id}', [HomeController::class, 'show'])->name('blog.show');
     Route::prefix('admin')->group(function (){
 
         // ADMIN SIDE - DASHBOARD
-        Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
         // ADMIN SIDE - ARTICLE
         Route::resource('/article', ArticleController::class)->except('show');

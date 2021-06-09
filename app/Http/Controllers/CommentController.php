@@ -10,6 +10,12 @@ use App\Models\User;
 
 class CommentController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -17,12 +23,9 @@ class CommentController extends Controller
      */
     public function index()
     {
+        
+        $this->authorize('Publish Comment');
         $comment = Comment::all();
-
-        $admin = User::where('role_id', 1);
-        if (!Gate::allows('isAdmin', $admin )) {
-            return abort(404);
-        }
 
         return view('admin.comment.index', compact('comment'));
     }
